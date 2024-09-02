@@ -10,14 +10,16 @@
 <body>
     <span id="request-token">
         <label for="email">Email:</label>
-        <input id="email" id="email-token"/>
+        <input id="email" type="email"/>
+        <label for="password">Password:</label>
+        <input id="password" type="password"/>
         <button onclick="requestToken()">Request</button>
     </span>
     &nbsp;&nbsp;
     <span id="enterToken">
         <label for="email">Token:</label>
-        <input id="email" id="email-token" type="email"/>
-        <button onclick="requestToken()">Login</button>
+        <input id="token"/>
+        <button onclick="verfifyLogin()">Login</button>
     </span>
     <br> 
     <br>
