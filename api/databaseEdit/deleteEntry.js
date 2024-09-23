@@ -31,7 +31,7 @@ router.post('/', async (request, response) => {
 
                 await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
 
-                response.json({ status: true });
+                response.json({ status: true , data: data });
             } catch (error) {
                 console.error('Error reading or writing file:', error);
                 response.status(500).json({ status: false, message: 'Internal server error' });

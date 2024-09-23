@@ -11,8 +11,6 @@
     <span id="request-token">
         <label for="email">Email:</label>
         <input id="email" type="email"/>
-        <label for="password">Password:</label>
-        <input id="password" type="password"/>
         <button onclick="requestToken()">Request</button>
     </span>
     &nbsp;&nbsp;
@@ -23,7 +21,11 @@
     </span>
     <br> 
     <br>
-
+    <button onclick="addDatabase()">Add Database</button>
+    <button onclick="viewDatabases()">View Databases</button>
+    <br>
+    <br>
+    <div id="database-list"></div>
     <script src='script.js'></script>
 </body>
 </html>

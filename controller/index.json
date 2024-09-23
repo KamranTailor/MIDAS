@@ -1,7 +1,42 @@
 [
-    {
-        "databaseName": "test",
-        "databaseId": "test",
-        "fileName": "test.json"
-    }
+  {
+    "databaseName": "test",
+    "databaseId": "b3db36c1-e5b6-4076-ad97-88edee579c2d",
+    "fileName": "test.json"
+  },
+  {
+    "databaseName": "test",
+    "databaseId": "335a0a55-5621-4ec4-98b7-86eb39a7227d",
+    "fileName": "text/test.json"
+  },
+  {
+    "databaseName": "userData",
+    "databaseId": "b59b7631-f435-4189-b2ab-0c26a27def85",
+    "fileName": "userData/userData.json"
+  },
+  {
+    "databaseName": "sessions",
+    "databaseId": "007383ba-72af-42a1-b8ff-ac2f3f5a03ac",
+    "fileName": "userData/sessions.json"
+  },
+  {
+    "databaseName": "onlineUsers",
+    "databaseId": "1d2d62fa-2286-48d3-b035-7f0f082a1109",
+    "fileName": "messages/onlineUsers"
+  },
+  {
+    "databaseName": "messages",
+    "databaseId": "2710d83c-0fa6-4f8f-afaf-2ca304fe8942",
+    "fileName": "messages/messages.json"
+  },
+  {
+    "databaseName": "tubeStatus",
+    "databaseId": "7750a3bc-1372-4485-9581-8516193b3f6e",
+    "fileName": "tubeTime/tubeStatus.json"
+  },
+  {
+    "databaseName": "dump.json",
+    "databaseId": "2f248411-4a71-4a1a-829b-d64d5dfa4e3b",
+    "fileName": "flight/dump.json"
+  }
 ]

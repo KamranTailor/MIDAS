@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.post('/', async (request, response) => {
     try {
-        const { databaseId, entryId,  newArray } = request.body;
+        const { databaseId, entryId, newArray } = request.body;
 
         if (localUtils.checkDatabase(databaseId)) {
             try {
@@ -22,11 +22,28 @@ router.post('/', async (request, response) => {
                     return response.status(500).json({ status: false, message: 'Database file format is invalid' });
                 }
 
-                for (let i in data)
+                let entryFound = false;
 
+                // Find and update the entry
+                for (let i in data) {
+                    if (data[i].id === entryId) {
+                        const id = data[i].id;
+                        data[i] = newArray;
+                        data[i].id = id; // Keep the original ID
+                        entryFound = true;
+                        break;
+                    }
+                }
+
+                // If the entryId was not found, return an error
+                if (!entryFound) {
+                    return response.status(404).json({ status: false, message: 'Entry ID not found' });
+                }
+
+                // Write the updated data back to the file
                 await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
 
-                response.json({ status: true });
+                response.json({ status: true, data: data, newArray });
             } catch (error) {
                 console.error('Error reading or writing file:', error);
                 response.status(500).json({ status: false, message: 'Internal server error' });
@@ -39,4 +56,6 @@ router.post('/', async (request, response) => {
         response.status(500).json({ status: false, message: 'Internal server error' });
     }
 });
+
 export default router;
+

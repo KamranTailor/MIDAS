@@ -28,7 +28,7 @@ router.post('/', async (request, response) => {
                 data.push(newArray);
 
                 await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
-                response.json({ status: true });
+                response.json({ status: true , data: data, newArray: newArray });
                 
             } catch (error) {
                 console.error('Error reading or writing file:', error);

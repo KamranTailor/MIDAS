@@ -8,11 +8,14 @@ import dotenv from 'dotenv';
 import localUtils from './utils/main.js';
 import fs from 'fs/promises';
 import { v4 as uuidv4 } from 'uuid';
+import nodemailer from 'nodemailer';
 
 dotenv.config();
 const port =  9090;
 import app from './main.js';
 
+import { initializePeriodicTasks } from './dump/main.js'; 
+initializePeriodicTasks();
 
 let controller = await localUtils.setController();
 
