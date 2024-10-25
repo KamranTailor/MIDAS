@@ -19,10 +19,6 @@ router.post('/', async (request, response) => {
                 const fileContent = await fs.readFile(filePath, 'utf-8');
                 let data = JSON.parse(fileContent);
 
-                if (!Array.isArray(data)) {
-                    return response.status(500).json({ status: false, message: 'Database file format is invalid' });
-                }
-
                 response.json({ status: true, data : data});
             } catch (error) {
                 console.error('Error reading or writing file:', error);
