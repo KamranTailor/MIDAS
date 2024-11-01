@@ -7,8 +7,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 //Database Commands 
 import addEntryRouter from './api/databaseEdit/addEntry.js';
