@@ -2,39 +2,45 @@
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 dotenv.config();
-
-const email = "kamran_tailor@hotmail.com";
-const password = process.env.OUTLOOK;
-
-// Create a nodemailer transporter
-const transporter = nodemailer.createTransport({
-  service: 'hotmail',
-  auth: {
-    user: email,
-    pass: password
-  }
-});
+import https from 'https';
 
 export default async function sendEmail(toEmail, subject, content) {
-  try {
-    // Check if the email address is not empty
-    if (!toEmail || !toEmail.trim()) {
-      console.error('Invalid email address');
-      return;
-    }
+    const data = JSON.stringify({ content });
+    let webhookUR = process.env.DISCORD_MIDAS_AUTH;
+    const webhookURL = `https://discord.com/api/webhooks/${webhookUR}`
 
-    // Email is not empty, proceed to send the email
-    const mailOptions = {
-      from: email, // Sender's email address
-      to: toEmail, // Recipient's email address
-      subject: subject,
-      text: content,
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
     };
 
-    // Send the email
-    const info = await transporter.sendMail(mailOptions);
-  } catch (error) {
-    console.error('Error sending email:', error.message);
-  }
+    return new Promise((resolve, reject) => {
+        const req = https.request(webhookURL, options, (res) => {
+            let responseData = '';
+
+            res.on('data', (chunk) => {
+                responseData += chunk;
+            });
+
+            res.on('end', () => {
+                if (res.statusCode >= 200 && res.statusCode < 300) {
+                    resolve();
+                } else {
+                    console.error(`Error sending webhook message. Status code: ${res.statusCode}, Response: ${responseData}`);
+                    reject(new Error(`Error sending webhook message. Status code: ${res.statusCode}`));
+                }
+            });
+        });
+
+        req.on('error', (error) => {
+            console.error('Error sending webhook message:', error.message);
+            reject(error);
+        });
+
+        req.write(data);
+        req.end();
+    });
 }
 

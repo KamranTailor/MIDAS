@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -7,25 +8,41 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
 </head>
+
 <body>
-    <span id="request-token">
-        <label for="email">Email:</label>
-        <input id="email" type="email"/>
-        <button onclick="requestToken()">Request</button>
-    </span>
-    &nbsp;&nbsp;
-    <span id="enterToken">
-        <label for="email">Token:</label>
-        <input id="token"/>
-        <button onclick="verfifyLogin()">Login</button>
-    </span>
-    <br> 
-    <br>
-    <button onclick="addDatabase()">Add Database</button>
-    <button onclick="viewDatabases()">View Databases</button>
-    <br>
-    <br>
-    <div id="database-list"></div>
+    <div class="login-container" id="login-container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input id="email" type="email" />
+                <button onclick="requestToken()">Request</button>
+            </div>
+            <div class="form-group">
+                <label for="email">Token:</label>
+                <input id="token" />
+                <button onclick="verifyLogin()">Login</button>
+            </div>
+            <span id="error-message" class="error"></span>
+        </div>
+    </div>
+    </div>
+
+    <div id="content" class="content">
+        <div class="toolbar">
+            <button onclick="addDatabase()">Add Database</button>
+            <button onclick="viewDatabases()">View Databases</button>
+        </div>
+        <br>
+        <br>
+        <div id="database-list-co">
+            <div id="database-search">
+                <input type="text" id="search-box" placeholder="Search databases..." onkeyup="searchDatabases()" />
+            </div>
+            <div id="database-list"></div>
+        </div>
+    </div>
     <script src='script.js'></script>
 </body>
+
 </html>

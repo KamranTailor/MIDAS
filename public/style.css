@@ -1,7 +1,8 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Courier New", Courier, monospace;
     background-color: #222;
-    color: #fff;
+    color: #33ff33;
+    margin-top: 20px;
 }
 
 .database {
@@ -9,4 +10,157 @@ body {
     margin-bottom: 10px;
     padding: 20px;
     border-radius: 20px;
+    border: 2px solid #ff33cc; /* Magenta border for added contrast */
+    box-shadow: 0 0 10px rgba(255, 51, 204, 0.3); /* Magenta glow */
+}
+
+code {
+    font-family: "Courier New", Courier, monospace;
+    color: #ffcc00;
+    background-color: #444;
+    padding: 2px 4px;
+    border-radius: 5px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Courier New", Courier, monospace;
+    color: #00ff99; /* Bright green for headers */
+    text-shadow: 0 0 5px rgba(0, 255, 153, 0.6); /* Glowing text */
+}
+
+a {
+    color: #ffcc00;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #ff66ff; /* Bright magenta on hover */
+}
+
+/* Login styling */
+.login-container {
+    display: flex;
+    background: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 51, 204, 0.3);
+    padding: 2em;
+    max-width: 450px;
+    margin: auto;
+    border: 2px solid #00ccff; /* Cyan border */
+}
+
+.login-form {
+    width: 100%;
+}
+
+.login-form h2 {
+    margin-bottom: 1em;
+    font-size: 26px;
+    color: #00ccff; /* Cyan for headers */
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 204, 255, 0.7); /* Cyan glow */
+}
+
+.form-group {
+    margin-bottom: 1.5em;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 15px;
+    color: #ffcc00; /* Yellow for form labels */
+    text-shadow: 0 0 5px rgba(255, 204, 0, 0.6); /* Yellow glow */
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75em;
+    border: 1px solid #555;
+    background-color: #222;
+    color: #33ff33;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #00ffcc; /* Brighter border on focus */
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5); /* Cyan glow on focus */
+}
+
+/* Login button styling */
+.login-btn, .form-group button {
+    width: 100%;
+    padding: 0.8em;
+    border: 2px solid #ff33cc;
+    background-color: #222;
+    color: #ff33cc;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(255, 51, 204, 0.4); /* Magenta glow */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+}
+
+.login-btn:hover, .form-group button:hover {
+    background-color: #ff33cc;
+    color: #222;
+    box-shadow: 0 0 15px rgba(255, 51, 204, 0.6); /* Intense magenta glow */
+}
+
+.login-btn:active, .form-group button:active {
+    background-color: #222;
+    color: #ff33cc;
+    box-shadow: 0 0 8px rgba(255, 51, 204, 0.5);
+}
+
+.error {
+    color: #ff4d4d;
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    margin-top: 1em;
+}
+
+.links {
+    text-align: center;
+    margin-top: 1em;
+    font-size: 14px;
+}
+
+.links a {
+    color: #ffcc00;
+    margin: 0 0.3em;
+}
+
+/* Toolbar button styling */
+button {
+    background-color: #333;
+    border: 2px solid #00ccff;
+    color: #00ccff;
+    padding: 0.6em 1em;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 0 8px rgba(0, 204, 255, 0.4); /* Cyan glow */
+}
+
+button:hover {
+    background-color: #00ccff;
+    color: #222;
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.6); /* Brighter cyan glow on hover */
+}
+
+.content {
+    display: none;
 }
