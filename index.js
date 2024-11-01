@@ -19,6 +19,9 @@ initializePeriodicTasks();
 
 let controller = await localUtils.setController();
 
+app.use(express.json({ limit: '10mb' })); // for JSON payloads
+app.use(express.urlencoded({ limit: '10mb', extended: true })); // for URL-encoded payloads
+
 app.get('/version', (request, response) => {response.json({version: version})});
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
